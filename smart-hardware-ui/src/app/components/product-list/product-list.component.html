@@ -1,0 +1,13 @@
+<div
+	fxLayout="row wrap"
+	fxLayout.lt-sm="column"
+	fxLayoutAlign="start stretch"
+	*ngIf="!!(searchResult$ | async)?.length">
+	<div
+		*ngFor="let item of searchResult$ | async | slice: 0:20; let i = index"
+		fxFlex.gt-md="33.33%"
+		fxFlex.gt-xs="50%"
+		fxFlex.lt-xs="100%">
+		<app-product [item]="item"></app-product>
+	</div>
+</div>

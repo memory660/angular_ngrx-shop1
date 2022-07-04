@@ -1,0 +1,15 @@
+<app-banner> </app-banner>
+<div class="search-box">
+	<input
+		type="search"
+		placeholder="Search here..."
+		(input)="searchProduct($event)" />
+</div>
+<app-product-list
+	*ngIf="(areProductsLoaded$ | async) === true"></app-product-list>
+<div
+	class="loading-container"
+	*ngIf="(areProductsLoading$ | async) === true"
+	fxLayoutAlign="center center">
+	<mat-spinner></mat-spinner>
+</div>
